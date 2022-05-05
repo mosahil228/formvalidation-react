@@ -1,0 +1,106 @@
+let reg=/harry/;
+  let reg=/harry/g;  //this is a global flag...
+  let reg=/harry/i;  //i means case insensitive...Thats means all capital and small value is consideres as same
+  console.log(reg);
+  console.log(reg.source);  //ye apko reg k andr jo hota h vo de deta h
+  ........................
+  let s="This is great code with harry and harry";
+  // 1-exec()  - This function will return an array for match or null for no match  
+  let result =reg.exec(s);
+  console.log(result);
+  result =reg.exec(s); //jab humne global flag lgaya to ye poore syntax m jake dekhega kha kha harry h to jitni bar ayga utne index return krega
+  console.log(result);
+
+  console.log(result.input);// return whole sentences
+  console.log(result.index);// return index of match value
+
+  // 2-test()  -Returns true or false;
+  let result2=reg.test(s);
+  console.log(result2);
+
+   //3. match() - it will return an array of result or null
+  // let result3=reg.match(s)----// ye galat h
+  // let result3=s.match(reg)----// ye shi h
+
+  // 4. search()-- return index of first match or -1
+  // let result4=s.search(reg)  //--this is right
+  // console.log(result4);
+
+  // 5. replace()-- returns new replaced string with all the replacements if no flag is given first match will be replaced
+  //  let result5=s.replace(reg,'Sahil')
+  // console.log(result5);
+
+  DAY--2
+    // metacharacter symbol
+  // let reg=/^h/;   //start symbol-- start with h     /^harr/  start with harr
+  // let reg=/ry$/;   //endswith symbol-- end with ry     /harry$/  end with harry
+  // let reg=/h.rry/;   //  . means matches any one character... matlb . ki jgh koi bhi word hoga match hojyga (exactly one character)
+  // let reg=/h*rry/;   //  * means matches any one or more character... matlb * ki jgh kitne bhi bhi word ay match hojyga (exactly one or more character)
+  // let reg=/ha?rryi?/;   //  ? means optional  mtlb (a) optional h ho ya ni or (i) bhi opional h  s="hrry"
+  // reg=/har\*ry/ escape krdeta h  example s="har*ry"  find true
+  let s="harry is harry";
+
+
+  let result=reg.exec(s);
+  console.log("the result of exec is", result);
+  reg.test(s)?console.log("present"):console.log("absent");
+
+  DAY--3
+  //Regular expression:
+  //basic function
+  //Metacharacter Symbols
+  //Character Symbols
+//
+
+// Character Set=[]
+// let reg=/h[a-z]rry/   //means a se lekr z k beech m kuch bhi ay match hoga  example  /h[ry]rry means (r) or (y) ho skte h bs or koi ni
+// let reg=/h[^aty]rry/   //means (a) or (t) or (y) ni ho skte h baki or koi bhi ajay
+// let reg=/h[^aty]rr[zy]/  
+// let reg=/h[aty]rr[zy]/  
+//CASESENSITIVE YOU CAN USE
+// let reg=/h[a-zA-z]rr[zyZY]/  
+// let reg=/h[a-zA-z0-9]rr[zyZY]/  
+// let s="h7rrY";   //hArrY  //harrz
+
+// QUANTIFIERS
+// let reg=/har{2}y/ //thats means r can be  exact 2 times
+// let reg=/har{0,2}y/ //thats means r can be  0-2 times example  s=hay  true  hary ,harry
+// let s="hary";  
+
+// GROUPING
+// let reg=/(har){2}/   //har can be exactly occures two times
+let reg=/(har){2}([0-9]r){3}/   //har can be exactly occures two times s="harhar1r2r5r" true
+let s="harhar";  
+
+DAY--4
+// Character CLasses
+
+
+// let reg=/\war/   //Word character - _or alphabet or numbers  means w ki jgh koi bhi word alpha ya number a ksta  exaple s="_arkar" ye match krega _ar se
+// let reg=/\w+ar/   //Word character - _or alphabet or numbers  means w+ ki jgh kitne bhi word alpha ya number a ksta  exaple s="_kkkkkarkar" ye match krega _ar se
+// let reg=/\Wbhai/   //NON Word character - word character k alava kuch bhi ay match hoga  jase space(bhai) true hoga kyu space NWC h.
+// let reg=/\W+/   //NON Word character - %&... any  NWC hoga khi to match hoga  sahil &%#$ true hoga  [kitni bhi bar ay]
+// let reg=/\d999/   //digit  - koi bhi ek digit ho or age 999 ho expale   s="3999"
+// let reg=/\d+999/   //digit  - kitne bhi digit ho or age 999 ho expale   s="3999"
+// let reg=/\D999/   //Non digit  - Non digit ho or age 999 ho expale   s="3999"
+// let reg=/\D+999/   //Non digit  - kitne bhi Non digit ho or age 999 ho expale   s="3999"
+// let reg=/\ska number/   //white space  - space ho or uske age (ka)    s="harry ka number"
+// let reg=/\s+ka number/   //white space  - one or more than space ho or uske age (ka)    s="harry               ka number"
+// let reg=/\Ska number/   //Non white space  -  space na ho or uske age (ka)    s="harryka number"
+// let reg=/\Ska number/    //Non white space  - one or more than space ho or uske age (ka)    s="harryka number"
+// word boundry
+// let reg=/num\b/    //  - word boudry-  num k age space deke agr koi or word ata h to num match hoa exaple  s="harry ka num ber"
+// Assertions
+// let reg=/h(?=a)/ // means h k bad a hi ho tb match hoga s="harry"
+// let reg=/h(?!a)/ // means h k bad kuch bhi ho lkn a n ho match hoga s="harry"
+
+// let s="hsssss_arkarbhai&&&&u999";  
+// let s="harry ka number";  
+// let s="harry ka num ber";  
+let s="harryr";  
+
+let result=reg.exec(s);
+console.log("the result of exec is", result);
+reg.test(s)?console.log("present"):console.log("absent");
+
+
